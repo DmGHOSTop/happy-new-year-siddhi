@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Siddhi ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at bottom, #1b2735, #090a0f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Card */
+.card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 35px rgba(255, 0, 120, 0.5);
+    max-width: 650px;
+}
+
+/* Glowing Name */
+.name {
+    font-size: 44px;
+    margin: 15px 0;
+    color: #ff69b4;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff69b4; }
+    to { text-shadow: 0 0 40px #ff1493; }
+}
+
+/* Photo */
+.photo {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 20px auto;
+    border: 4px solid #ff69b4;
+    box-shadow: 0 0 25px #ff1493;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff1493;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Firework */
+.firework {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    animation: explode 1s ease-out forwards;
+}
+
+.firework::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: gold;
+    border-radius: 50%;
+    box-shadow:
+        0 0 gold,
+        20px 0 red,
+        -20px 0 pink,
+        0 20px orange,
+        0 -20px violet,
+        15px 15px cyan,
+        -15px -15px lime;
+}
+
+@keyframes explode {
+    from { transform: scale(0); opacity: 1; }
+    to { transform: scale(3); opacity: 0; }
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.popup-content {
+    background: #ff69b4;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    font-size: 22px;
+    box-shadow: 0 0 30px #ff1493;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎉 Happy New Year 🎉</h1>
+
+    <div class="name">Siddhi ❤️</div>
+
+    <!-- YOUR PHOTO -->
+    <div class="photo" onclick="showLove()">
+        <img src="Siddhi.jpg" alt="Us ❤️">
+    </div>
+
+    <p>
+        With you by my side,<br>
+        every year feels beautiful 💖<br><br>
+        I choose you today,<br>
+        and for all the years to come ✨
+    </p>
+
+    <button onclick="openPopup()">Click for Surprise 💌</button>
+</div>
+
+<!-- Popup -->
+<div class="popup" id="popup" onclick="closePopup()">
+    <div class="popup-content">
+        Forever us ❤️<br>
+        Happy New Year, Siddhi 💫
+    </div>
+</div>
+
+<script>
+// Fireworks on click
+document.addEventListener("click", function(e) {
+    let fw = document.createElement("div");
+    fw.className = "firework";
+    fw.style.left = e.clientX + "px";
+    fw.style.top = e.clientY + "px";
+    document.body.appendChild(fw);
+    setTimeout(() => fw.remove(), 1000);
+});
+
+// Photo click
+function showLove() {
+    alert("I love you Siddhi ❤️✨");
+}
+
+// Popup
+function openPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
